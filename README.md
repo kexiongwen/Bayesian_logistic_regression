@@ -28,7 +28,7 @@ Then, conditional on $\omega$, we have a Gaussian likelihood of the form
 
 
 $$
-\prod_{i=1}^{N}L_{i}(\beta|\omega_{i})\propto \exp \left\{-\frac{1}{2}(z-X \beta)^{T} \Omega(z-X \beta)\right\}
+\prod_{i=1}^{N}L_{i}(\beta|\omega_{i})\propto \exp \left[-\frac{1}{2}(z-X \beta)^{T} \Omega(z-X \beta)\right]
 $$
 
 
