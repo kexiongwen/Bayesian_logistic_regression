@@ -33,7 +33,7 @@ def Bayesian_L_half_logist(Y,X,M=10000,burn_in=10000):
         #Preconditioning feature matrix
         XTD=X.T*D.T         
         GXTD=G.reshape(-1,1)*XTD           
-        DY=D*(Y-0.5)
+        DY=(Y-0.5)/D
         
         #Preconditioning covariance matrix
         GXTDXG=GXTD@GXTD.T

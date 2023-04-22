@@ -1,6 +1,6 @@
 import numpy as np
 
-def CD_logistic(Y,X,C=1,iteration=10,Q=0.5,s=1):
+def CD_logistic(Y,X,C=1,iteration=20,Q=0.5,s=1):
 
     N,P=np.shape(X)
     b=C*np.log(P)/P
@@ -74,4 +74,4 @@ def CD_logistic(Y,X,C=1,iteration=10,Q=0.5,s=1):
                     ink1=ink2+X[:,j:j+1]@beta[j:j+1,:]-X[:,0:1]@beta[0:1,:]
                     ink2=np.zeros((N,1))
 
-    return beta
+    return beta.ravel()
