@@ -66,6 +66,12 @@ where $\Sigma= (X^{T}DX+\lambda^{4}\Lambda^{-2})^{-1}$ , $\mu=\Sigma X^{T}D\kapp
 
 
 
+where the condition posterior of $\beta$ are sampled from conjugated gradient and prior preconditioning approach proposed by 
+
+https://www.tandfonline.com/doi/epdf/10.1080/01621459.2022.2057859?needAccess=true&role=button.
+
+
+
 ## Coordinate descent with Proximal Newton map
 
 In this section, we extend the coordinate descent algorithm from Gaussian likelihood to binary logistic likelihood. Our strategy is the same as https://www.jstatsoft.org/article/view/v033i01. By coding the response as $0/1$, the likelihood can be written as
@@ -105,6 +111,43 @@ $$
 
 
 The solution to equation (6) above in the inner loop is known as Proximal Newton Map https://arxiv.org/pdf/1206.1623.pdf. By slightly modifying the coordinate descent algorithm for penalized least square problem in https://arxiv.org/pdf/2108.03464.pdf,  we can get the coordinate descent algorithm for penalized weighted least square problem.
+
+
+
+## Usage
+
+```
+from Bayes_logistic_regression import Bayesian_L_half_logist
+
+beta_sample=Bayesian_L_half_logist(Y,X,M,burn_in)
+```
+
+
+
+1. $Y$ is the vector of response with length $N$  
+2. $X$ is $N \times P$ covariate matrix. 
+3. $M$ is the number of the samples from MCMC with default setting 10000. 
+4. burn_in is the burn in period for MCMC with default setting 10000.  
+
+
+
+```
+from CD_logistic import CD_logistic
+
+beta_estimator=CD_logistic(Y,X,C,s)
+```
+
+
+
+1. $Y$ is the vector of response with length $N$. 
+
+2. $X$ is $N \times P$ covariate matrix. 
+
+3. $Q \in (0,1)$ is the quantile level.
+
+4. C control the size of hyper-parameter b as we set  $b =C \frac{\log(P)}{P}$. The default value is 0.5.  
+
+5. s is the value of $\gamma$. The default value is 3. 
 
 
 
@@ -154,6 +197,17 @@ The solution to equation (6) above in the inner loop is known as Proximal Newton
   number={504},
   pages={1339--1349},
   year={2013},
+  publisher={Taylor \& Francis}
+}
+```
+
+```
+@article{nishimura2022prior,
+  title={Prior-Preconditioned Conjugate Gradient Method for Accelerated Gibbs Sampling in “Large n, Large p” Bayesian Sparse Regression},
+  author={Nishimura, Akihiko and Suchard, Marc A},
+  journal={Journal of the American Statistical Association},
+  pages={1--14},
+  year={2022},
   publisher={Taylor \& Francis}
 }
 ```
