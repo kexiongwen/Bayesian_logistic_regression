@@ -108,3 +108,53 @@ The solution to equation (6) above in the inner loop is known as Proximal Newton
 
 
 
+## Reference
+
+```
+@article{ke2021bayesian,
+  title={Bayesian $ L_\frac{1}{2}$ regression},
+  author={Ke, Xiongwen and Fan, Yanan},
+  journal={arXiv preprint arXiv:2108.03464},
+  year={2021}
+}
+```
+
+```
+@article{lee2014proximal,
+  title={Proximal Newton-type methods for minimizing composite functions},
+  author={Lee, Jason D and Sun, Yuekai and Saunders, Michael A},
+  journal={SIAM Journal on Optimization},
+  volume={24},
+  number={3},
+  pages={1420--1443},
+  year={2014},
+  publisher={SIAM}
+}
+```
+
+```
+@article{lee2014proximal,
+  title={Proximal Newton-type methods for minimizing composite functions},
+  author={Lee, Jason D and Sun, Yuekai and Saunders, Michael A},
+  journal={SIAM Journal on Optimization},
+  volume={24},
+  number={3},
+  pages={1420--1443},
+  year={2014},
+  publisher={SIAM}
+}
+```
+
+```
+@article{polson2013bayesian,
+  title={Bayesian inference for logistic models using P{\'o}lya--Gamma latent variables},
+  author={Polson, Nicholas G and Scott, James G and Windle, Jesse},
+  journal={Journal of the American statistical Association},
+  volume={108},
+  number={504},
+  pages={1339--1349},
+  year={2013},
+  publisher={Taylor \& Francis}
+}
+```
+
