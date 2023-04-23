@@ -73,8 +73,8 @@ In this section, we extend the coordinate descent algorithm from Gaussian likeli
 
 $$
 \begin{aligned}
-\ell(\beta) &=\sum_{i=1}^{N}\left\{y_{i} \log p\left(x_{i} ; \beta\right)+\left(1-y_{i}\right) \log \left(1-p\left(x_{i} ; \beta\right)\right)\right\} \\
-&=\sum_{i=1}^{N}\left\{y_{i} x_{i}\beta -\log \left(1+e^{ x_{i}\beta}\right)\right\}.
+\ell(\beta) &=\sum_{i=1}^{N}\left [y_{i} \log p\left(x_{i} ; \beta\right)+\left(1-y_{i}\right) \log \left(1-p\left(x_{i} ; \beta\right)\right)\right] \\
+&=\sum_{i=1}^{N}\left[y_{i} x_{i}\beta -\log \left(1+e^{ x_{i}\beta}\right)\right].
 \end{aligned}
 $$
 
@@ -97,13 +97,14 @@ $\boldsymbol{W}=\mathbf{diag}\left(P(Y=1|X\beta^{old})*(1-P(Y=1|X\beta^{old}))\r
 For logistic regression with a non-separable Bridge penalty, the fitting algorithm consists of two steps. First, we create an outer loop, which computes the quadratic approximation of (unpenalized) log-likelihood as in (\ref{eq:likelihood}) based on the $\beta$ from last iteration. Then in the inner loop, we use coordinate descent to solve the penalized weighted least-squares problem
 
 
+
 $$
 \beta^{\text {new }} \leftarrow \arg \min _{\beta}(\mathbf{z}-\mathbf{X} \beta)^{T} \mathbf{W}(\mathbf{z}-\mathbf{X} \beta)+(2^{\gamma}p+0.5)\log\left(\sum_{j=1}^{p}|\beta_{j}|^{\frac{1}{2^{\gamma}}}+1/b\right).
 $$
 
 
 
-The solution to Equation (\ref{eq:Proximal}) in the inner loop is known as Proximal Newton Map https://arxiv.org/pdf/1206.1623.pdf. By slightly modifying the coordinate descent algorithm for penalized least square problem in https://arxiv.org/pdf/2108.03464.pdf,  we can get the coordinate descent algorithm for penalized weighted least square problem.
+The solution to equation (6) above in the inner loop is known as Proximal Newton Map https://arxiv.org/pdf/1206.1623.pdf. By slightly modifying the coordinate descent algorithm for penalized least square problem in https://arxiv.org/pdf/2108.03464.pdf,  we can get the coordinate descent algorithm for penalized weighted least square problem.
 
 
 
