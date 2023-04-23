@@ -1,7 +1,8 @@
 import numpy as np
 
-def CD_logistic(Y,X,C=1,iteration=20,Q=0.5,s=1):
+def CD_logistic(Y,X,C=0.5,s=3):
 
+    iteration=20
     N,P=np.shape(X)
     b=C*np.log(P)/P
     a=0.5

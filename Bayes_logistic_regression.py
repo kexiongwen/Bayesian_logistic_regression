@@ -11,7 +11,8 @@ def Bayesian_L_half_logist(Y,X,M=10000,burn_in=10000):
     N,P=np.shape(X)
    
     #Initialization
-    beta_sample=np.ones((P,M+burn_in))
+    beta_sample=np.zeros((P,M+burn_in))
+    beta_tilde=np.ones((P,1))
     tau_sample=np.ones(P)
     v_sample=np.ones(P)
     a_sample=1
@@ -42,7 +43,7 @@ def Bayesian_L_half_logist(Y,X,M=10000,burn_in=10000):
         b=GXTD@DY+GXTD@np.random.randn(N,1)+np.random.randn(P,1)
 
         #Solve Preconditioning the linear system by conjugated gradient method
-        beta_tilde,_=cg(GXTDXG+sparse.eye(P),b.ravel(),x0=np.zeros(P),tol=1e-4)
+        beta_tilde,_=cg(GXTDXG+sparse.eye(P),b.ravel(),x0=beta_tilde,tol=1e-4)
 
         #revert to the solution of the original system
         beta_sample[:,i]=G*beta_tilde
