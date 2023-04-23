@@ -1,10 +1,18 @@
 # Bayesian Logistic Regression with $L_{\frac{1}{2}}$ prior
 
+## Package required
+
+We use the data augmentation trick in logistic models proposed by https://arxiv.org/pdf/1205.0310.pdf. Then the likelihood can be decomposed as Normal-Polya–Gamma mixture.  Therefore the MCMC requires to sample Polya–Gamma random variable. We use the code from the author of that paper(https://github.com/jwindle/BayesLogit.).  It provides a Python interface for efficiently sampling Pólya-gamma random variates. Install with:
+
+```
+pip install pypolyagamma
+```
+
+This package is only available at Python. 
+
+
+
 ## Model setting
-
-We use the data augmentation trick in logistic models proposed by https://arxiv.org/pdf/1205.0310.pdf.
-
-
 
 Let $y_{i}$ be the number of successes, $n_{i}$ the number of trials and $x_{i}=(x_{i1},...,x_{ip})$ the vector of predictors for observation $i=1,2,3,...,N$. 
 
